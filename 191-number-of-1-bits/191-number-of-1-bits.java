@@ -1,8 +1,14 @@
 public class Solution {
     // you need to treat n as an unsigned value
     public int hammingWeight(int n) {
-       String bin = Integer.toBinaryString(n);
-        int count = bin.length()-bin.replace("1","").length();
+       int count = 0;
+        for(int i = 0;i<32;i++){
+            int lastIndex = n & 1;
+            if(lastIndex == 1){
+                count++;
+            }
+            n >>= 1;
+        }
         return count;
     }
 }
