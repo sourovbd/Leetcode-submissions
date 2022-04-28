@@ -1,27 +1,20 @@
 class Solution {
-     public boolean isHappy(int n) {
-        Set<Integer> numbers = new HashSet<>();
-        if (n ==1) return true;
-        while (n != 1) {
-            char[] digit = String.valueOf(n).toCharArray();
-            int sum = 0;
-            for (int i = 0; i < digit.length; i++) {
-                sum = (sum + ((digit[i] - 48) * (digit[i] - 48)));
-            }
-
-            if (!isEnteredInCycle(numbers, sum)) {
-                return false;
-            }
-            n = sum;
+     private int getNext(int n) {
+        int totalSum = 0;
+        while (n > 0) {
+            int d = n % 10;
+            n = n / 10;
+            totalSum += d * d;
         }
-        return true;
+        return totalSum;
     }
-    public static boolean isEnteredInCycle(Set numbers, int num) {
-        if (!numbers.contains(num)) {
-            numbers.add(num);
-        } else {
-            return false;
+
+    public boolean isHappy(int n) {
+        Set<Integer> seen = new HashSet<>();
+        while (n != 1 && !seen.contains(n)) {
+            seen.add(n);
+            n = getNext(n);
         }
-        return true;
+        return n == 1;
     }
 }
