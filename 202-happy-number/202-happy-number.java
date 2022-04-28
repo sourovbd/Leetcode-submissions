@@ -1,20 +1,24 @@
 class Solution {
-     private int getNext(int n) {
-        int totalSum = 0;
-        while (n > 0) {
-            int d = n % 10;
-            n = n / 10;
-            totalSum += d * d;
+      public static boolean isHappy(int n) {
+        Set<Integer> numbers = new HashSet<>();
+        while (n != 1 && !numbers.contains(n)) {
+            numbers.add(n);
+            n = nextNumber(n);
         }
-        return totalSum;
+        return (n == 1);
     }
 
-    public boolean isHappy(int n) {
-        Set<Integer> seen = new HashSet<>();
-        while (n != 1 && !seen.contains(n)) {
-            seen.add(n);
-            n = getNext(n);
+    public static int nextNumber(int num) {
+        int sum = 0;
+        while (num > 0) {
+            int lastDigit = num % 10;
+            num = num / 10;
+            sum = sum + getSquare(lastDigit);
         }
-        return n == 1;
+        return sum;
+    }
+
+    public static int getSquare(int digit) {
+        return (digit * digit);
     }
 }
