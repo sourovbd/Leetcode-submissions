@@ -13,7 +13,7 @@ class Solution {
         while (num > 0) {
             int lastDigit = num % 10;
             num = num / 10;
-            sum = sum + getSquare(lastDigit);
+            sum += (lastDigit * lastDigit);
         }
         return sum;
     }
