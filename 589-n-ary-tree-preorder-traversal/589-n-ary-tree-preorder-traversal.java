@@ -29,9 +29,7 @@ class Solution {
     }
     
     public void buildTree(Node curNode, List result) {
-        if (curNode == null) {
-            return;
-        }
+      
         for (Node node : curNode.children) {
             if (node == null) {
                 return;
