@@ -6,7 +6,16 @@ class Solution {
         // int setLen = integerSet.size();
         // return (len==setLen) ? false : true;
         
-        return (Arrays.stream(nums).distinct().toArray().length == nums.length) ? false : true;
+        // return (Arrays.stream(nums).distinct().toArray().length == nums.length) ? false : true;
+        
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int num : nums) {
+            if (map.containsKey(num)) {
+                return true;
+            }
+            map.put(num, 1);
+        }
+        return false;
         
     }
 }
