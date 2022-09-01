@@ -8,12 +8,19 @@ class Solution {
         
         // return (Arrays.stream(nums).distinct().toArray().length == nums.length) ? false : true;
         
-        Map<Integer, Integer> map = new HashMap<>();
+        // Map<Integer, Integer> map = new HashMap<>();
+        // for (int num : nums) {
+        //     if (map.containsKey(num)) {
+        //         return true;
+        //     }
+        //     map.put(num, 1);
+        // }
+        // return false;
+        Set<Integer> set = new HashSet<>();
         for (int num : nums) {
-            if (map.containsKey(num)) {
+            if (!set.add(num)) {
                 return true;
             }
-            map.put(num, 1);
         }
         return false;
         
