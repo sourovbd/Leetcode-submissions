@@ -6,7 +6,7 @@ class Solution {
         // int setLen = integerSet.size();
         // return (len==setLen) ? false : true;
         
-        return ((Arrays.stream(nums).distinct().toArray().length) != nums.length) ? true : false;
+        return (Arrays.stream(nums).distinct().toArray().length == nums.length) ? false : true;
         
     }
 }
