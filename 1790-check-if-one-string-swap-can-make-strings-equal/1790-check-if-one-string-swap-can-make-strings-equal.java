@@ -23,6 +23,8 @@ class Solution {
                 map.put(ints.get(0), chars.get(1));
                 map.put(ints.get(1), chars.get(0));
             }
+            if (count > 2)
+                return false;
         }
         //TODO: Need to check swap functionality.
         char[] chars2 = s2.toCharArray();
