@@ -20,9 +20,10 @@ class Solution {
         int sum=0;
         for (int i=0; i<integers.size(); i++) {
             Integer[] arr2 = integers.get(i);
-            for(int j=0; j<arr2.length; j++) {
-                sum = sum + arr2[j];
-            }
+            // for(int j=0; j<arr2.length; j++) {
+            //     sum += arr2[j];
+            // }
+            sum += Arrays.stream(arr2).reduce(0, (a,b) -> (a+b));
         }
         return sum;
     }
