@@ -3,11 +3,10 @@ class Solution {
         Map<Character, Integer> orderMap = new HashMap<>();
         int orderLen = order.length();
         int count = 0;
-        boolean flag = false;
         for ( int i = 0; i < orderLen; i++) {
             orderMap.put(order.charAt(i), ++count);
         }
-        //orderMap.forEach((k,v) -> System.out.println(k + " - "+v));
+        orderMap.forEach((k,v) -> System.out.println(k + " - "+v));
         int wordsLen = words.length;
         for (int i = 0; i < wordsLen-1; i++) {
             char[] word1 = words[i].toCharArray();
@@ -20,7 +19,6 @@ class Solution {
                     if (orderMap.get(word1[j]) == orderMap.get(word2[j])){
                         continue;
                     } else if (orderMap.get(word1[j]) < orderMap.get(word2[j])){
-                        flag = true;
                         break;
                     } else if ((orderMap.get(word1[j]) > orderMap.get(word2[j]))) {
                         return false;
@@ -35,14 +33,12 @@ class Solution {
                     if (orderMap.get(word1[j]) == orderMap.get(word2[j])){
                         continue;
                     } else if (orderMap.get(word1[j]) < orderMap.get(word2[j])){
-                        flag = true;
                         break;
                     } else if ((orderMap.get(word1[j]) > orderMap.get(word2[j]))) {
                         return false;
                     }
                 }
                 if (j == word2Len) {
-                    flag = true;
                     continue;
                 }
             } else {
@@ -51,14 +47,12 @@ class Solution {
                     if (orderMap.get(word1[j]) == orderMap.get(word2[j])){
                         continue;
                     } else if (orderMap.get(word1[j]) < orderMap.get(word2[j])){
-                        flag = true;
                         break;
                     } else if ((orderMap.get(word1[j]) > orderMap.get(word2[j]))) {
                         return false;
                     }
                 }
                 if (j == word2Len) {
-                    flag = true;
                     continue;
                 }
             }
