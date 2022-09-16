@@ -8,6 +8,7 @@ class Solution {
         Map<Character, Integer> mapOfS = new HashMap();
         Map<Character, Integer> mapOfT = new HashMap();
 
+        //ascii value of a & z is respectively 97 & 122
         for (int i=97; i<=122; i++) {
             mapOfS.put((char)i, 0);
             mapOfT.put((char)i, 0);
