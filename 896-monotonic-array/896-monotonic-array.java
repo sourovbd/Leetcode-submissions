@@ -2,10 +2,10 @@ class Solution {
     public boolean isMonotonic(int[] nums) {
         int len = nums.length;
         int countOfGreater = 0, countOfSmaller = 0;
-        for (int i=0,j=1; i< len-1; i++,j++) {
-            if (nums[i] > nums[j]) {
+        for (int currentIndex=0,nextIndex=1; currentIndex< len-1; currentIndex++,nextIndex++) {
+            if (nums[currentIndex] > nums[nextIndex]) {
                 countOfGreater++;
-            } else if (nums[i] < nums[j]){
+            } else if (nums[currentIndex] < nums[nextIndex]){
                 countOfSmaller++;
             } else {
                 countOfGreater++;
