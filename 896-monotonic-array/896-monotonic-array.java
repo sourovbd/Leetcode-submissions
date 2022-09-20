@@ -1,18 +1,18 @@
 class Solution {
     public boolean isMonotonic(int[] nums) {
         int len = nums.length;
-        int k = 0, l = 0;
+        int countOfGreater = 0, countOfSmaller = 0;
         for (int i=0,j=1; i< len-1; i++,j++) {
             if (nums[i] > nums[j]) {
-                k++;
+                countOfGreater++;
             } else if (nums[i] < nums[j]){
-                l++;
+                countOfSmaller++;
             } else {
-                l++;
-                k++;
+                countOfGreater++;
+                countOfSmaller++;
                 continue;
             }
         }
-        return (((k+1)==len) || ((l+1)==len));
+        return (((countOfGreater+1)==len) || ((countOfSmaller+1)==len));
     }
 }
