@@ -23,17 +23,19 @@ class Solution {
 	}
     // Create a function to return the “height” of a current subtree using recursion...
 	public static int Height(TreeNode root) {
-        // Base case...
         if (root == null)  return 0;
-        // Height of left subtree...
-        int leftHeight = Height(root.left);
-        // Height of right subtree...
-        int rightHeight = Height(root.right);
-        // In case of left subtree or right subtree unbalanced, return -1...
-        if (leftHeight == -1 || rightHeight == -1)  return -1;
-        // If their heights differ by more than ‘1’, return -1...
-        if (Math.abs(leftHeight - rightHeight) > 1)  return -1;
-        // Otherwise, return the height of this subtree as max(leftHeight, rightHight) + 1...
+        
+        int leftHeight = 0, rightHeight = 0;
+
+        leftHeight = Height(root.left);
+
+        rightHeight = Height(root.right);
+
+        if ((leftHeight == -1 || rightHeight == -1) || (Math.abs(leftHeight - rightHeight) > 1))  {
+            System.out.println("(leftHeight == -1 || rightHeight == -1): return -1");
+            return -1;
+        }
+           
         return Math.max(leftHeight, rightHeight) + 1;
     }
 }
