@@ -31,9 +31,11 @@ class Solution {
 
         rightHeight = Height(root.right);
 
-        if ((leftHeight == -1 || rightHeight == -1) || (Math.abs(leftHeight - rightHeight) > 1))  {
-            System.out.println("(leftHeight == -1 || rightHeight == -1): return -1");
+        if (leftHeight == -1 || rightHeight == -1)  {
             return -1;
+        }
+        if (Math.abs(leftHeight - rightHeight) > 1)  {
+             return -1;
         }
            
         return Math.max(leftHeight, rightHeight) + 1;
